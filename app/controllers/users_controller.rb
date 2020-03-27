@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   get '/users/:id' do
     if logged_in?
-      erb :'/users/show'
+      erb :'users/show'
     else
       redirect to '/login'
     end
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   post '/signup' do
     if params[:username] == '' || params[:password] == ''
       redirect '/signup'
-    elsif User.find_by(username: username) != nil
+    elsif User.find_by(username: params[:username]) != nil
         #message that username already exists
     else
       @user = User.create(username: params[:username], password: params[:password])
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 
   get '/logout' do
     if logged_in?
-      session.clear
+      session.destroy
       redirect to '/login'
     else
       redirect to '/'
