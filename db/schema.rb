@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20200327193512) do
     t.string  "collaboration"
     t.string  "thinking"
     t.string  "communication"
-    t.text :  "comments"
+    t.text    "comments"
     t.integer "user_id"
   end
 
