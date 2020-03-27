@@ -19,10 +19,8 @@ class UsersController < ApplicationController
   post '/signup' do
     if params[:username] == '' || params[:password] == ''
       redirect '/signup'
-    elsif User.find_by(username: params[:username]) != nil
-        #message that username already exists
     else
-      @user = User.create(username: params[:username], password: params[:password])
+      @user = User.create(name: params[:name], password: params[:password])
       session[:user_id] = @user.id
       redirect to '/reflections'
     end
@@ -30,8 +28,7 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      #message that user is already logged in
-      redirect to '/reflections'
+      erb :'users/show'
     else
       erb :'users/login'
     end
@@ -43,8 +40,7 @@ class UsersController < ApplicationController
      session[:user_id] = user.id
      redirect '/reflections'
    else
-     #message that username and/or password is incorrect
-     redirect '/login'
+     erb :'users/login', locals: {message: "Username and/or password is incorrect. Try again."}
    end
   end
 

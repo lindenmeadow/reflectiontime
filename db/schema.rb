@@ -18,11 +18,20 @@ ActiveRecord::Schema.define(version: 20200327193512) do
     t.string  "block"
     t.string  "teacher_name"
     t.string  "project_name"
+    t.string  "project_type"
+    t.string  "conduct"
+    t.string  "leadership"
+    t.string  "work"
+    t.string  "creativity"
+    t.string  "collaboration"
+    t.string  "thinking"
+    t.string  "communication"
+    t.text :  "comments"
     t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.string "name"
     t.string "password_digest"
   end
 

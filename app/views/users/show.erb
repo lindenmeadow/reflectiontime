@@ -1,5 +1,5 @@
 <div class="post-container">
-    <h1 class="title">Hi, <%= current_user.student_name %>! Here are your project reflections.</h1>
+    <h1 class="title">Hi, <%= current_user.name %>! Here are your project reflections.</h1>
     <hr>
 
     <% current_user.reflections.each do |reflection| %>
