@@ -1,0 +1,180 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #fff;
+}
+
+.banner {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('./images/school.jpg');
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.banner .navbar {
+    margin-top: 2%;
+}
+
+.banner .navbar-brand {
+    color: #fff;
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-left: 10%;
+}
+
+.banner .nav {
+    margin-right: 10%;
+}
+
+.banner .nav li a {
+    color: #fff;
+    font-size: 1.3em;
+}
+
+.banner .nav li a:hover {
+    color: #dbe91d;
+}
+
+.banner .info {
+    margin-top: 8%;
+    transform: translateY(-15%);
+    transform: translateX(1.7%);
+    background: rgb(0, 255, 153, 0.3);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.banner .info h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #fff;
+}
+
+.banner .info  p {
+    font-size: 2em;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.banner .info a {
+    margin-left: 50%;
+    transform: translateX(-49%);
+    color: #fff;
+    background: #1d20e9;
+    padding: 10px 20px;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.banner .info a:hover {
+    background: #0e90e7;
+}
+
+.loginbox {
+    width: 320px;
+    height: 420px;
+    background-color: #000;
+    color: #fff;
+    top: 50%;
+    left: 51%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border: 2px solid white;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.loginbox h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.loginbox p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginbox input[type="text"], input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.loginbox input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.loginbox input[type="submit"]:hover {
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+
+.loginbox a {
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.loginbox a:hover {
+    color: #ffc107;
+}
+
+.post-container {
+    width: 50%;
+    margin: 0 auto;
+    background: rgba(170, 202, 212, 0.9);
+    padding: 2rem;
+    border: 2px solid black;
+}
+
+.title {
+    text-align: center;
+    font-size: 150%;
+    color: #fff;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.post-list li {
+    text-decoration: none;
+    list-style-type: none;
+}
