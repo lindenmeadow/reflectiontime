@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if logged_in?
       redirect to '/reflections'
     else
-      erb :'/users/signup'
+      erb :'users/signup'
     end
   end
 
