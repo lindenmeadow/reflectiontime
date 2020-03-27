@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReflectionTime Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+        .banner {
+            height: auto;
+            color: black;
+            background-attachment: fixed;
+        }
+
+        #survey-form {
+            width: 50%;
+            margin: 0 auto;
+            background: rgba(170, 202, 212, 0.9);
+            padding: 2rem;
+            border: 2px solid black;
+        }
+
+        #title {
+            text-align: center;
+            font-size: 150%;
+            color: #fff;
+        }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background: #333;
+            background-image: linear-gradient(to right, #ccc, #333, #ccc);
+        }
+
+        textarea {
+            border-radius: .3rem;
+            padding: .2rem;
+        }
+
+        .form-control {
+            max-width: 40%;
+        }
+
+        #comments {
+            max-width: 80%;
+        }
+
+        #submit {
+            padding: .5rem;
+            font-size: 1.25rem;
+            background-color: #b37700;
+            color: white;
+            border: 2px solid #4d2600;
+            border-radius: .3rem;
+        }
+
+        #submit:hover {
+            background-color: #ffd9b3;
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid banner">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-md">
+                    <div class="navbar-brand">ReflectionTime</div>
+                    <ul class="nav">
+                      <li class="nav-item">
+                          <a href="/" class="nav-link">HOME</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="/users/login" class="nav-link">LOGIN</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="/users/signup" class="nav-link">SIGNUP</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="/reflections/index" class="nav-link">REFLECTIONS</a>
+                      </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <form action="/reflections/<%= @reflection.id %>" id="survey-form" method="POST">
+
+                <h1 id="title">Edit Reflection</h1>
+                <hr>
+                <p>If you would like, you can make changes in a reflection you have submitted.</p>
+
+                <div class="form-group">
+                    <input id="hidden" type="hidden" name="_method" value="PATCH">
+                    <label>What Is Your Name?</label><br>
+                    <input class="form-control" name="student_name" size="50" id="student_name" type="text"
+                    value="<%= @reflection.student_name %>" required>
+                    <br>
+                    <label>Which Block Do You Belong To?</label><br>
+                    <input class="form-control" size="50" name="block" id="block" type="text"
+                    value="<%= @reflection.block %>" required>
+                    <br>
+                    <label>Who Is Your Teacher?</label><br>
+                    <input class="form-control" size="50" id="teacher_name" type="text"
+                    value="<%= @reflection.teacher_name %>" required>
+                    <br>
+                    <label>What Is the Name of This Project?</label><br>
+                    <input class="form-control" size="50" id="project_name" type="text"
+                    value="<%= @reflection.project_name" required>
+                    <br>
+
+                    <p>Which kind of project is this?
+                        <select class="form-control" name="project_type" value="<%= @reflection.project_type %>" id="dropdown" required>
+                    <option value="Independent Project">Independent project</option>
+                    <option value="Partner Project">Partner project</option>
+                    <option value="Triad Project">Triad project</option>
+                    <option value="Quad Project">Quad project</option>
+                    <option value="Other">Other</option>
+                    </select>
+                    </p>
+
+                    <p>Rate the following areas.</p>
+                    <p>Conduct:
+                        <select class="form-control" name="conduct" value="<%= @reflection.conduct %>"
+                            id="conduct" required>
+                            <option value="No Expectations Followed">No Expectations Followed</option>
+                            <option value="Expectations Inconsistently Followed">Expectations Inconsistently Followed</option>
+                            <option value="Expectations Consistently Followed">Expectations Consistently Followed</option>
+                        </select>
+                    </p>
+
+                    <p>Leadership Abilities:
+                        <select class="form-control" name="leadership" value="<%= @reflection.leadership %>"
+                            id="leadership" required>
+                            <option value="No Expectations Followed">No Expectations Followed</option>
+                            <option value="Expectations Inconsistently Followed">Expectations Inconsistently Followed</option>
+                            <option value="Expectations Consistently Followed">Expectations Consistently Followed</option>
+                        </select>
+                    </p>
+
+                    <p>Work Requirements:
+                        <select class="form-control" name="work" value="<%= @reflection.work %>" id="work"
+                            required>
+                            <option value="Missed 3 or more requirements">Missed 3 or more requirements</option>
+                            <option value="Missed 1 or 2 requirements">Missed 1 or 2 requirements</option>
+                            <option value="Met all requirements">Met all requirements</option>
+                        </select>
+                    </p>
+
+                    <p>Creativity:
+                        <select class="form-control" name="creativity" value="<%= @reflection.creativity %>"
+                        id="creativity" required>
+                            <option value="Poor">Poor</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Good">Good</option>
+                        </select>
+                    </p>
+
+                    <p>Collaboration:
+                        <select class="dropdown form-control" name="collaboration"
+                            value="<%= @reflection.collaboration %>" id="collaboration" required>
+                            <option value="Poor">Poor</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Good">Good</option>
+                        </select>
+                    </p>
+
+
+                    <p>Critical Thinking:
+                        <select class="dropdown form-control" name="thinking" value="<%= @reflection.thinking %>"
+                            id="thinking" required>
+                            <option value="Poor">Poor</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Good">Good</option>
+                        </select>
+                    </p>
+
+                    <p>Communication:
+                        <select class="dropdown form-control" name="communication"
+                            value="<%= @reflection.communication %>" id="communication" required>
+                            <option value="Poor">Poor</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Good">Good</option>
+                        </select>
+                    </p>
+
+                    <p>What did you like most about the project? What did you dislike most about it? Do you have any
+                        comments or suggestions? Be sure to keep your remarks courteous.</p>
+                    <textarea name="comments" id="comments" class="form-control" rows="6" cols="60"
+                    value="<%= @reflection.comments %>" placeholder="Tell us more!"></textarea>
+                    <br>
+                    <button id="submit" type="submit">Update Reflection</button>
+                    <br><br>
+                    <p>Or...</p>
+                    <p>Would you like to delete this reflection?</p>
+                    <form method="post" action="/reflections/<%= @reflection.id %>">
+                        <input id="hidden" type="hidden" name="_method" value="delete">
+                        <input class="btn btn-danger" type="submit" value="Delete Reflection">
+                    </form>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>

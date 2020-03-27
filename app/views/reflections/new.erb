@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReflectionTime Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+        .banner {
+            height: auto;
+            color: black;
+            background-attachment: fixed;
+        }
+
+        #survey-form {
+            width: 50%;
+            margin: 0 auto;
+            background: rgba(170, 202, 212, 0.9);
+            padding: 2rem;
+            border: 2px solid black;
+        }
+
+        #title {
+            text-align: center;
+            font-size: 150%;
+            color: #fff;
+        }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background: #333;
+            background-image: linear-gradient(to right, #ccc, #333, #ccc);
+        }
+
+        textarea {
+            border-radius: .3rem;
+            padding: .2rem;
+        }
+
+        .form-control {
+            max-width: 40%;
+        }
+
+        #comments {
+            max-width: 80%;
+        }
+
+        #submit {
+            padding: .5rem;
+            font-size: 1.25rem;
+            background-color: #b37700;
+            color: white;
+            border: 2px solid #4d2600;
+            border-radius: .3rem;
+        }
+
+        #submit:hover {
+            background-color: #ffd9b3;
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid banner">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-md">
+                    <div class="navbar-brand">ReflectionTime</div>
+                    <ul class="nav">
+                      <li class="nav-item">
+                          <a href="/" class="nav-link">HOME</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="/users/login" class="nav-link">LOGIN</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="/users/signup" class="nav-link">SIGNUP</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="/reflections/index" class="nav-link">REFLECTIONS</a>
+                      </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <form action="/" id="survey-form" method="POST">
+
+                <h1 id="title">Student Project Reflection</h1>
+                <hr>
+                <p>Welcome! Time to give your teacher some feedback about your project.</p>
+
+                <div class="form-group">
+
+                <label>What Is Your Name?</label><br>
+                <input class="form-control" name="student_name" size="50" id="name" type="text" placeholder="Mary Jane Student" required>
+                <br>
+                <label>Which Block Do You Belong To?</label><br>
+                <input class="form-control" size="50" name="block" id="block" type="text" placeholder="Block 1" required>
+                <br>
+                <label>Who Is Your Teacher?</label><br>
+                <input class="form-control" name="teacher_name" size="50" id="teacher_name" type="text" placeholder="Ms. Smarty" required>
+                <br>
+                <label>What Is the Name of This Project?</label><br>
+                <input class="form-control" name="project_name" size="50" id="project_name" type="text" placeholder="Book Report" required>
+                <br>
+
+                <p>Which kind of project is this?
+                    <select class="form-control" name="project_type" id="dropdown" required>
+                        <option value="Independent project">Independent project</option>
+                        <option value="Partner project">Partner project</option>
+                        <option value="Triad project">Triad project</option>
+                        <option value="Quad project">Quad project</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </p>
+
+                <p>Rate the following areas.</p>
+                <p>Conduct:
+                    <select class="form-control" name="conduct" id="conduct" required>
+                        <option value="No Expectations Followed">No Expectations Followed</option>
+                        <option value="Expectations Inconsistently Followed">Expectations Inconsistently Followed</option>
+                        <option value="Expectations Consistently Followed">Expectations Consistently Followed</option>
+                    </select>
+                </p>
+
+                <p>Leadership Abilities:
+                    <select class="dropdown form-control" name="leadership" id="leadership" required>
+                        <option value="No Expectations Followed">No Expectations Followed</option>
+                        <option value="Expectations Inconsistently Followed">Expectations Inconsistently Followed</option>
+                        <option value="Expectations Consistently Followed">Expectations Consistently Followed</option>
+                    </select>
+                </p>
+
+                <p>Work Requirements:
+                    <select class="dropdown form-control" name="work" id="work" required>
+                        <option value="Missed 3 or more requirements">Missed 3 or more requirements</option>
+                        <option value="Missed 1 or 2 requirements">Missed 1 or 2 requirements</option>
+                        <option value="Met all requirements">Met all requirements</option>
+                    </select>
+                </p>
+
+                <p>Creativity:
+                    <select class="dropdown form-control" name="creativity" id="creativity" required>
+                        <option value="Poor">Poor</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Good">Good</option>
+                    </select>
+                </p>
+
+                <p>Collaboration:
+                    <select class="dropdown form-control" name="collaboration" id="collaboration" required>
+                        <option value="Poor">Poor</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Good">Good</option>
+                    </select>
+                </p>
+
+
+                <p>Critical Thinking:
+                    <select class="dropdown form-control" name="thinking" id="thinking" required>
+                        <option value="Poor">Poor</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Good">Good</option>
+                    </select>
+                </p>
+
+                <p>Communication:
+                    <select class="dropdown form-control" name="communication" id="communication" required>
+                        <option value="Poor">Poor</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Good">Good</option>
+                    </select>
+                </p>
+
+                <p>What did you like most about the project? What did you dislike most about it? Do you have any comments or suggestions? Be sure to keep your remarks courteous.</p>
+                <textarea name="comments" id="comments" class="form-control" rows="6" cols="60" placeholder="Tell us more!"></textarea>
+                <br>
+                <button id="submit" type="submit">Submit</button>
+                </div>
+                <hr>
+                <p>Image by <a
+                        href="https://pixabay.com/users/sunilkargwal-250946/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=953123">sunil
+                        kargwal</a> from <a
+                        href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=953123">Pixabay</a>
+                </p>
+            </form>
+
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
