@@ -63,7 +63,7 @@ class ReflectionsController < ApplicationController
     end
   end
 
-  post '/reflections/:id' do
+  patch '/reflections/:id' do
     @reflection = Reflection.find_by_id(params[:id])
     @reflection.update(
     student_name: params[:student_name],
@@ -83,7 +83,7 @@ class ReflectionsController < ApplicationController
     redirect "/reflections/#{@reflection.id}"
   end
 
-  delete '/reflections/:id/delete' do
+  delete '/reflections/:id' do
     if logged_in?
       @reflection = Reflection.find(params[:id])
       if @reflection.user_id == current_user.id

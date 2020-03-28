@@ -184,14 +184,14 @@
 
                     </div>
                   </form>
-                  <!--
+
                     <p>Or...</p>
                     <p>Would you like to delete this reflection?</p>
-                    <form method="post" action="/reflections/<%= @reflection.id %>/delete">
-                        <input id="hidden" type="hidden" name="_method" value="delete">
+                    <form method="post" action="/reflections/<%= @reflection.id %>">
+                        <input type="hidden" name="_method" value="delete">
                         <input class="btn btn-danger" type="submit" value="Delete Reflection">
                     </form>
-                  -->
+
             </div>
         </div>
     </div>
