@@ -46,20 +46,20 @@ class ReflectionsController < ApplicationController
       @reflection = Reflection.find_by_id(params[:id])
       erb :'reflections/show'
     else
-      erb :'users/login', locals: {message: "You need to login first."}
+      erb :'users/login'
     end
   end
 
   get '/reflections/:id/edit' do
     if logged_in?
-      @reflection = Reflection.find_by_id(params[:id])
-      if @reflection && @reflection.user == current_user
+      @reflection = Reflection.find(params[:id])
+      if @reflection.user_id == current_user.id
         erb :'reflections/edit'
       else
-        erb :'reflections/index', locals: {message: "You can't edit someone else's reflection."}
+        redirect '/login'
       end
     else
-      erb :'users/login', locals: {message: "You need to login first."}
+      redirect '/'
     end
   end
 

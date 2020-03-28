@@ -72,46 +72,46 @@
 
     <div class="container-fluid banner">
         <div class="row">
-
-            <form action="/reflections/<%= @reflection.id %>" id="survey-form" method="POST">
-
+            <div id="survey-form">
+            <form action="/reflections/<%= @reflection.id %>" method="patch">
+                <input type="hidden" name="_method" value="PATCH">
                 <h1 id="title">Edit Reflection</h1>
                 <hr>
                 <p>If you would like, you can make changes in a reflection you have submitted.</p>
 
                 <div class="form-group">
-                    <input id="hidden" type="hidden" name="_method" value="PATCH">
+
                     <label>What Is Your Name?</label><br>
-                    <input class="form-control" name="student_name" size="50" id="student_name" type="text"
-                    value="<%= @reflection.student_name %>" required>
+                    <input class="form-control" name="student_name" size="50" id="student_name" type="text" required>
                     <br>
                     <label>Which Block Do You Belong To?</label><br>
                     <input class="form-control" size="50" name="block" id="block" type="text"
-                    value="<%= @reflection.block %>" required>
+                    required>
                     <br>
                     <label>Who Is Your Teacher?</label><br>
                     <input class="form-control" size="50" id="teacher_name" type="text"
-                    value="<%= @reflection.teacher_name %>" required>
+                    required>
                     <br>
                     <label>What Is the Name of This Project?</label><br>
                     <input class="form-control" size="50" id="project_name" type="text"
-                    value="<%= @reflection.project_name" required>
+                    required>
                     <br>
 
                     <p>Which kind of project is this?
-                    <select class="form-control" name="project_type" value="<%= @reflection.project_type %>" id="project_type" required>
-                    <option value="Independent Project">Independent project</option>
-                    <option value="Partner Project">Partner project</option>
-                    <option value="Triad Project">Triad project</option>
-                    <option value="Quad Project">Quad project</option>
-                    <option value="Other">Other</option>
+                    <select class="form-control" name="project_type" id="project_type" required>
+                      <option value="" disabled selected>Select your option</option>
+                      <option value="Independent Project">Independent project</option>
+                      <option value="Partner Project">Partner project</option>
+                      <option value="Triad Project">Triad project</option>
+                      <option value="Quad Project">Quad project</option>
+                      <option value="Other">Other</option>
                     </select>
                     </p>
 
                     <p>Rate the following areas.</p>
                     <p>Conduct:
-                        <select class="form-control" name="conduct" value="<%= @reflection.conduct %>"
-                            id="conduct" required>
+                        <select class="form-control" name="conduct" id="conduct" required>
+                            <option value="" disabled selected>Select your option</option>
                             <option value="No Expectations Followed">No Expectations Followed</option>
                             <option value="Expectations Inconsistently Followed">Expectations Inconsistently Followed</option>
                             <option value="Expectations Consistently Followed">Expectations Consistently Followed</option>
@@ -119,8 +119,8 @@
                     </p>
 
                     <p>Leadership Abilities:
-                        <select class="form-control" name="leadership" value="<%= @reflection.leadership %>"
-                            id="leadership" required>
+                        <select class="form-control" name="leadership" id="leadership" required>
+                            <option value="" disabled selected>Select your option</option>
                             <option value="No Expectations Followed">No Expectations Followed</option>
                             <option value="Expectations Inconsistently Followed">Expectations Inconsistently Followed</option>
                             <option value="Expectations Consistently Followed">Expectations Consistently Followed</option>
@@ -128,8 +128,9 @@
                     </p>
 
                     <p>Work Requirements:
-                        <select class="form-control" name="work" value="<%= @reflection.work %>" id="work"
+                        <select class="form-control" name="work" id="work"
                             required>
+                            <option value="" disabled selected>Select your option</option>
                             <option value="Missed 3 or more requirements">Missed 3 or more requirements</option>
                             <option value="Missed 1 or 2 requirements">Missed 1 or 2 requirements</option>
                             <option value="Met all requirements">Met all requirements</option>
@@ -137,8 +138,8 @@
                     </p>
 
                     <p>Creativity:
-                        <select class="form-control" name="creativity" value="<%= @reflection.creativity %>"
-                        id="creativity" required>
+                        <select class="form-control" name="creativity" id="creativity" required>
+                            <option value="" disabled selected>Select your option</option>
                             <option value="Poor">Poor</option>
                             <option value="Fair">Fair</option>
                             <option value="Good">Good</option>
@@ -146,8 +147,8 @@
                     </p>
 
                     <p>Collaboration:
-                        <select class="dropdown form-control" name="collaboration"
-                            value="<%= @reflection.collaboration %>" id="collaboration" required>
+                        <select class="dropdown form-control" name="collaboration" id="collaboration" required>
+                            <option value="" disabled selected>Select your option</option>
                             <option value="Poor">Poor</option>
                             <option value="Fair">Fair</option>
                             <option value="Good">Good</option>
@@ -156,8 +157,8 @@
 
 
                     <p>Critical Thinking:
-                        <select class="dropdown form-control" name="thinking" value="<%= @reflection.thinking %>"
-                            id="thinking" required>
+                        <select class="dropdown form-control" name="thinking" id="thinking" required>
+                            <option value="" disabled selected>Select your option</option>
                             <option value="Poor">Poor</option>
                             <option value="Fair">Fair</option>
                             <option value="Good">Good</option>
@@ -165,8 +166,8 @@
                     </p>
 
                     <p>Communication:
-                        <select class="dropdown form-control" name="communication"
-                            value="<%= @reflection.communication %>" id="communication" required>
+                        <select class="dropdown form-control" name="communication" id="communication" required>
+                            <option value="" disabled selected>Select your option</option>
                             <option value="Poor">Poor</option>
                             <option value="Fair">Fair</option>
                             <option value="Good">Good</option>
@@ -175,23 +176,25 @@
 
                     <p>What did you like most about the project? What did you dislike most about it? Do you have any
                         comments or suggestions? Be sure to keep your remarks courteous.</p>
-                    <textarea name="comments" id="comments" class="form-control" rows="6" cols="60"
-                    value="<%= @reflection.comments %>" placeholder="Tell us more!"></textarea>
+                    <textarea name="comments" id="comments" class="form-control" rows="6" cols="60" placeholder="Tell us more!"></textarea>
                     <br>
+
                     <button id="submit" type="submit">Update Reflection</button>
-                    <br><br>
+                    <p><a href="/users/show">Never Mind. I don't want to change this reflection.</a></p>
+
+                    </div>
+                  </form>
+                  <!--
                     <p>Or...</p>
                     <p>Would you like to delete this reflection?</p>
-                    <form method="post" action="/reflections/<%= @reflection.id %>">
+                    <form method="delete" action="/reflections/<%= @reflection.id %>">
                         <input id="hidden" type="hidden" name="_method" value="delete">
                         <input class="btn btn-danger" type="submit" value="Delete Reflection">
                     </form>
-                </div>
-            </form>
-
+                  -->
+            </div>
         </div>
     </div>
-
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
