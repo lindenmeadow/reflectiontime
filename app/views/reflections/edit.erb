@@ -74,7 +74,7 @@
         <div class="row">
             <div id="survey-form">
             <form action="/reflections/<%= @reflection.id %>" method="patch">
-                <input type="hidden" name="_method" value="PATCH">
+
                 <h1 id="title">Edit Reflection</h1>
                 <hr>
                 <p>If you would like, you can make changes in a reflection you have submitted.</p>
@@ -82,18 +82,18 @@
                 <div class="form-group">
 
                     <label>What Is Your Name?</label><br>
-                    <input class="form-control" name="student_name" size="50" id="student_name" type="text" required>
+                    <input class="form-control" value="<%= @reflection.student_name %>" name="student_name" size="50" id="student_name" type="text" required>
                     <br>
                     <label>Which Block Do You Belong To?</label><br>
-                    <input class="form-control" size="50" name="block" id="block" type="text"
+                    <input class="form-control" size="50" value="<%= @reflection.block %>" name="block" id="block" type="text"
                     required>
                     <br>
                     <label>Who Is Your Teacher?</label><br>
-                    <input class="form-control" size="50" id="teacher_name" type="text"
+                    <input class="form-control" size="50" value="<%= @reflection.teacher_name %>" name="teacher_name" id="teacher_name" type="text"
                     required>
                     <br>
                     <label>What Is the Name of This Project?</label><br>
-                    <input class="form-control" size="50" id="project_name" type="text"
+                    <input class="form-control" size="50" name="project_name" value="<%= @reflection.project_name %>" id="project_name" type="text"
                     required>
                     <br>
 
@@ -176,10 +176,10 @@
 
                     <p>What did you like most about the project? What did you dislike most about it? Do you have any
                         comments or suggestions? Be sure to keep your remarks courteous.</p>
-                    <textarea name="comments" id="comments" class="form-control" rows="6" cols="60" placeholder="Tell us more!"></textarea>
+                    <textarea name="comments" id="comments" class="form-control" rows="6" cols="60" placeholder="Tell us more!"><%= @reflection.comments %></textarea>
                     <br>
 
-                    <button id="submit" type="submit">Update Reflection</button>
+                    <input class="btn btn-primary" type="submit" id="submit" name="update" value="Update Reflection">
                     <p><a href="/users/show">Never Mind. I don't want to change this reflection.</a></p>
 
                     </div>
@@ -187,7 +187,7 @@
                   <!--
                     <p>Or...</p>
                     <p>Would you like to delete this reflection?</p>
-                    <form method="delete" action="/reflections/<%= @reflection.id %>">
+                    <form method="post" action="/reflections/<%= @reflection.id %>/delete">
                         <input id="hidden" type="hidden" name="_method" value="delete">
                         <input class="btn btn-danger" type="submit" value="Delete Reflection">
                     </form>

@@ -37,7 +37,7 @@ class ReflectionsController < ApplicationController
         @reflection.save
         redirect "/reflections/#{@reflection.id}"
       else
-        erb :'users/login', locals: {message: "You need to login first."}
+        redirect '/login'
       end
   end
 
@@ -65,36 +65,31 @@ class ReflectionsController < ApplicationController
 
   patch '/reflections/:id' do
     @reflection = Reflection.find_by_id(params[:id])
-    if logged_in? && @reflection.user == current_user
-      @reflection.update(
-        project_name: params[:project_name],
-        student_name: params[:student_name],
-        block: params[:block],
-        teacher_name: params[:teacher_name],
-        project_type: params[:project_type],
-        conduct: params[:conduct],
-        leadership: params[:leadership],
-        work: params[:work],
-        creativity: params[:creativity],
-        collaboration: params[:collaboration],
-        thinking: params[:thinking],
-        communication: params[:communication],
-        comments: params[:comments])
-        redirect "/reflections/#{@reflection.id}"
-    else
-        redirect '/login'
-    end
+    @reflection.update(params[:student_name])
+    @reflection.update(params[:block])
+    @reflection.update(params[:teacher_name])
+    @reflection.update(params[:project_name])
+    @reflection.update(params[:project_type])
+    @reflection.update(params[:conduct])
+    @reflection.update(params[:leadership])
+    @reflection.update(params[:work])
+    @reflection.update(params[:creativity])
+    @reflection.update(params[:collaboration])
+    @reflection.update(params[:thinking])
+    @reflection.update(params[:communication])
+    @reflection.update(params[:comments])
+    erb :"/users/show"
   end
 
   delete '/reflections/:id/delete' do
-    @reflection = Reflection.find_by_id(params[:id])
     if logged_in?
-      if @reflection && @reflection.user == current_user
+      @reflection = Reflection.find(params[:id])
+      if @reflection.user_id == current_user.id
         @reflection.destroy
       end
-      erb :'reflections/index'
+      erb :'users/show'
     else
-      erb :'users/login', locals: {message: "You need to login first."}
+      redirect '/'
     end
   end
 end
