@@ -4,7 +4,7 @@
 
     <% current_user.reflections.each do |reflection| %>
       <ul class="post-list">
-        <li><h4><a href="/reflections/<%=reflection.id%>">Your reflection on <%= reflection.project_title %></a></h4><br><a href="/reflections/<%=reflection.id%>/edit">Edit Reflection</a></li>
+        <li><h4><a href="/reflections/<%=reflection.id%>">Your reflection on <%= reflection.project_name %></a></h4><a href="/reflections/<%=reflection.id%>/edit">Edit Reflection</a></li>
       </ul>
     <% end %>
 

@@ -70,7 +70,16 @@ class ReflectionsController < ApplicationController
         project_name: params[:project_name],
         student_name: params[:student_name],
         block: params[:block],
-        teacher_name: params[:teacher_name])
+        teacher_name: params[:teacher_name],
+        project_type: params[:project_type],
+        conduct: params[:conduct],
+        leadership: params[:leadership],
+        work: params[:work],
+        creativity: params[:creativity],
+        collaboration: params[:collaboration],
+        thinking: params[:thinking],
+        communication: params[:communication],
+        comments: params[:comments])
         redirect "/reflections/#{@reflection.id}"
     else
         redirect '/login'
