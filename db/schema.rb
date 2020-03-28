@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200327193512) do
+ActiveRecord::Schema.define(version: 20200328011312) do
 
   create_table "reflections", force: :cascade do |t|
     t.string  "student_name"
