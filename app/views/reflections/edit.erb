@@ -73,8 +73,8 @@
     <div class="container-fluid banner">
         <div class="row">
             <div id="survey-form">
-            <form action="/reflections/<%= @reflection.id %>" method="patch">
-
+            <form action="/reflections/<%= @reflection.id %>" method="post">
+              <input id="hidden" type="hidden" name="_method" value="patch">
                 <h1 id="title">Edit Reflection</h1>
                 <hr>
                 <p>If you would like, you can make changes in a reflection you have submitted.</p>

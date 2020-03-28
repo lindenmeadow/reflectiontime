@@ -63,22 +63,24 @@ class ReflectionsController < ApplicationController
     end
   end
 
-  patch '/reflections/:id' do
+  post '/reflections/:id' do
     @reflection = Reflection.find_by_id(params[:id])
-    @reflection.update(params[:student_name])
-    @reflection.update(params[:block])
-    @reflection.update(params[:teacher_name])
-    @reflection.update(params[:project_name])
-    @reflection.update(params[:project_type])
-    @reflection.update(params[:conduct])
-    @reflection.update(params[:leadership])
-    @reflection.update(params[:work])
-    @reflection.update(params[:creativity])
-    @reflection.update(params[:collaboration])
-    @reflection.update(params[:thinking])
-    @reflection.update(params[:communication])
-    @reflection.update(params[:comments])
-    erb :"/users/show"
+    @reflection.update(
+    student_name: params[:student_name],
+    block: params[:block],
+    teacher_name: params[:teacher_name],
+    project_name: params[:project_name],
+    project_type: params[:project_type],
+    conduct: params[:conduct],
+    leadership: params[:leadership],
+    work: params[:work],
+    creativity: params[:creativity],
+    collaboration: params[:collaboration],
+    thinking: params[:thinking],
+    communication: params[:communication],
+    comments: params[:comments]
+    )
+    redirect "/reflections/#{@reflection.id}"
   end
 
   delete '/reflections/:id/delete' do
