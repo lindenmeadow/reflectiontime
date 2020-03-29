@@ -4,7 +4,7 @@ class ReflectionsController < ApplicationController
       @reflections = Reflection.all
       erb :'reflections/index'
     else
-      erb :'users/login', locals: {message: "You aren't logged in yet."}
+      redirect '/login'
     end
   end
 
@@ -12,7 +12,7 @@ class ReflectionsController < ApplicationController
     if logged_in?
       erb :'reflections/new'
     else
-      erb :'users/login', locals: {message: "You need to login first."}
+      redirect '/login'
     end
   end
 

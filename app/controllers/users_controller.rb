@@ -17,7 +17,9 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if params[:username] == '' || params[:password] == ''
+    if logged_in?
+      redirect '/reflections'
+    elsif params[:username] == '' || params[:password] == ''
       redirect '/signup'
     else
       @user = User.create(name: params[:name], password: params[:password])
@@ -40,7 +42,7 @@ class UsersController < ApplicationController
      session[:user_id] = user.id
      redirect '/reflections'
    else
-     erb :'users/login', locals: {message: "Username and/or password is incorrect. Try again."}
+    redirect 'login'
    end
   end
 
