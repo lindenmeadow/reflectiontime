@@ -17,7 +17,7 @@
             background-attachment: fixed;
         }
 
-        #survey-form {
+        .entry-form {
             width: 50%;
             margin: 0 auto;
             background: rgba(170, 202, 212, 0.9);
@@ -72,7 +72,7 @@
 
     <div class="container-fluid banner">
         <div class="row">
-            <div id="survey-form">
+            <div class="entry-form">
             <form action="/reflections/<%= @reflection.id %>" method="post">
               <input id="hidden" type="hidden" name="_method" value="patch">
                 <h1 id="title">Edit Reflection</h1>
@@ -180,6 +180,7 @@
                     <br>
 
                     <input class="btn btn-primary" type="submit" id="submit" name="update" value="Update Reflection">
+                    <br><br>
                     <p><a href="/users/show">Never Mind. I don't want to change this reflection.</a></p>
 
                     </div>

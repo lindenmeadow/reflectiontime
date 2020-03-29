@@ -17,14 +17,6 @@
             background-attachment: fixed;
         }
 
-        #survey-form {
-            width: 50%;
-            margin: 0 auto;
-            background: rgba(170, 202, 212, 0.9);
-            padding: 2rem;
-            border: 2px solid black;
-        }
-
         #title {
             text-align: center;
             font-size: 150%;
@@ -72,8 +64,8 @@
 
     <div class="container-fluid banner">
         <div class="row">
-
-            <form action="/reflections" id="survey-form" method="POST">
+          <div class="entry-form">
+            <form action="/reflections" method="POST">
 
                 <h1 id="title">Student Project Reflection</h1>
                 <hr>
@@ -179,7 +171,7 @@
                 </div>
 
             </form>
-
+          </div>
         </div>
     </div>
 
