@@ -2,7 +2,5 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :reflections
   validates :name, presence: true
-  validates :name, uniqueness: {
-      message: "Username already taken."
-    }
+  validates :name, uniqueness: true
 end
