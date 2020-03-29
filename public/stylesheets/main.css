@@ -37,6 +37,7 @@ body {
 
 .banner .nav li a:hover {
     color: #dbe91d;
+    text-decoration: none;
 }
 
 .banner .info {
@@ -75,6 +76,15 @@ body {
     background: #0e90e7;
 }
 
+.navbar-brand a {
+  color: #fff;
+}
+
+.navbar-brand a:hover {
+    color: #dbe91d;
+    text-decoration: none;
+}
+
 .loginbox {
     width: 320px;
     height: 420px;
@@ -87,15 +97,6 @@ body {
     box-sizing: border-box;
     padding: 70px 30px;
     border: 2px solid white;
-}
-
-.avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    position: absolute;
-    top: -50px;
-    left: calc(50% - 50px);
 }
 
 .loginbox h1 {
