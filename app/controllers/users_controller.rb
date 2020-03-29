@@ -52,4 +52,28 @@ class UsersController < ApplicationController
       redirect to '/'
     end
   end
+
+  get '/users/:id/edit' do
+    if logged_in?
+      erb :'users/edit'
+    else
+      redirect '/login'
+    end
+  end
+
+  patch '/users/:id' do
+    @user = User.find(params[:id])
+    @user.update(name:params[:name], password:params[:password])
+    redirect "/users/edit"
+  end
+
+  delete '/users/:id' do
+    if logged_in?
+      current_user.delete
+      redirect "/logout"
+    else
+      redirect '/login'
+    end
+  end
+
 end

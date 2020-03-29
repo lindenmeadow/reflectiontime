@@ -1,0 +1,20 @@
+<div class="loginbox">
+    <h1>Update Profile</h1>
+    <form action="/users/<%= current_user.id%>/edit" method="post">
+      <input id="hidden" type="hidden" name="_method" value="PATCH">
+        <p>Username</p>
+        <input type="text" name="name" placeholder="Update Username" required>
+        <p>Password</p>
+        <input type="password" name="password" placeholder="Update Password" required>
+        <input type="submit" name="update" value="Update">
+        <br>
+    </form>
+    <form action="/users/<%= current_user.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <p>Or delete your profile?</p>
+      <input class="btn btn-danger" type="submit" value="Delete Profile">
+      <br><br>
+      <a href="/users/show">Cancel. Take me back to my reflections.</a>
+    </form>
+    
+</div>
