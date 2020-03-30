@@ -12,8 +12,11 @@ INTERFACE
 User can:
 
 	view and complete a reflection form
+
 	submit a reflection form
+
 	edit a reflection form
+
 	delete a reflection form
 
 Model classes:
