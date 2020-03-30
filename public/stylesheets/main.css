@@ -7,10 +7,10 @@ body {
 }
 
 .banner {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/images/school.jpg');
-    background-position: top;
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -186,4 +186,12 @@ hr {
 .post-list li {
     text-decoration: none;
     list-style-type: none;
+}
+
+.list-item {
+  color: #cc3300;
+}
+
+.list-text {
+  color: black;
 }
