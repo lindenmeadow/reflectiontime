@@ -1,10 +1,10 @@
 <div class="loginbox">
     <h1>Sign Up Here</h1>
     <form action="/signup" method="post">
-        <p>Create Username (4-10 characters)</p>
-        <input type="text" name="name" placeholder="Create Username" required>
-        <p>Create Password (4-12 characters)</p>
-        <input type="password" name="password" placeholder="Create Password" required>
+        <p>Create Username (4-10 characters, letters and numbers only)</p>
+        <input type="text" name="name" placeholder="Create Username" pattern="[A-Za-z0-9]{4,10}" required>
+        <p>Create Password (4-12 characters, letters and numbers only)</p>
+        <input type="password" name="password" placeholder="Create Password" pattern="[A-Za-z0-9]{4,12}" required>
         <input type="submit" name="signup" value="Submit">
     </form>
 </div>
