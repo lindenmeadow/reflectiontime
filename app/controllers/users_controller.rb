@@ -4,13 +4,13 @@ class UsersController < ApplicationController
     if logged_in?
       erb :'users/show'
     else
-      redirect to '/login'
+      redirect '/login'
     end
   end
 
   get '/signup' do
     if logged_in?
-      redirect to '/reflections'
+      redirect '/reflections'
     else
       erb :'users/signup'
     end
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     else
       @user = User.create(name: params[:name], password: params[:password])
       session[:user_id] = @user.id
-      redirect to '/reflections'
+      redirect '/reflections'
     end
   end
 
@@ -47,9 +47,9 @@ class UsersController < ApplicationController
   get '/logout' do
     if logged_in?
       session.destroy
-      redirect to '/login'
+      redirect '/login'
     else
-      redirect to '/'
+      redirect '/'
     end
   end
 

@@ -13,6 +13,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .banner .navbar {
@@ -194,4 +195,50 @@ hr {
 
 .list-text {
   color: black;
+}
+
+.entry-form {
+    width: 50%;
+    margin: 0 auto;
+    background: rgba(170, 202, 212, 0.9);
+    padding: 2rem;
+    border: 2px solid black;
+}
+
+.title {
+    text-align: center;
+    font-size: 150%;
+    color: #fff;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.form-control {
+  max-width: 50%;
+}
+
+.comments {
+    max-width: 80%;
+    border-radius: .3rem;
+    padding: .2rem;
+}
+
+.submit {
+    padding: .5rem;
+    font-size: 1.25rem;
+    background-color: #b37700;
+    color: white;
+    border: 2px solid #4d2600;
+    border-radius: .3rem;
+}
+
+.submit:hover {
+    background-color: #ffd9b3;
+    color: black;
+    cursor: pointer;
 }
