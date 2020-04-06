@@ -6,5 +6,9 @@
         <p>Create Password (4-12 characters, letters and numbers only)</p>
         <input type="password" name="password" placeholder="Create Password" pattern="[A-Za-z0-9]{4,12}" required>
         <input type="submit" name="signup" value="Submit">
+        <% unless locals.empty? %>
+          <div class="alert alert-danger">
+            <%= message %>
+        <% end %>
     </form>
 </div>
