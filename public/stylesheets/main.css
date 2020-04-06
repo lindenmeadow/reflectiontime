@@ -93,6 +93,7 @@ body {
     color: #fff;
     top: 50%;
     left: 51%;
+    margin-top: 35px;
     position: absolute;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
