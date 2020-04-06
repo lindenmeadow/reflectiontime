@@ -62,9 +62,13 @@ class UsersController < ApplicationController
   end
 
   patch '/users/:id' do
-    @user = User.find(params[:id])
-    @user.update(name:params[:name], password:params[:password])
-    redirect '/users/show'
+    if params[:name] == '' || params[:password] == '' || User.find_by(:name => params[:name])
+      erb :'users/edit', locals: {message: "Missing input or username already taken. Try again."}
+    else
+      @user = User.find(params[:id])
+      @user.update(name:params[:name], password:params[:password])
+      redirect '/users/show'
+    end
   end
 
 end
