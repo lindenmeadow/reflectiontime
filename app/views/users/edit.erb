@@ -2,13 +2,18 @@
     <h1>Update Profile</h1>
     <form action="/users/<%= current_user.id%>" method="post">
       <input id="hidden" type="hidden" name="_method" value="PATCH">
-        <p>Username</p>
-        <input type="text" name="name" placeholder="Update Username" required>
-        <p>Password</p>
-        <input type="password" name="password" placeholder="Update Password" required>
+        <p>New Username (4-10 characters, letters and numbers only)</p>
+        <input type="text" name="name" placeholder="Update Username" pattern="[A-Za-z0-9]{4,10}" required>
+        <p>New Password (4-12 characters, letters and numbers only)</p>
+        <input type="password" name="password" placeholder="Update Password" pattern="[A-Za-z0-9]{4,12}" required>
         <input type="submit" name="update" value="Update">
         <br><br>
         <a href="/users/show">Cancel. Take me back to my reflections.</a>
+        <br>
+        <% unless locals.empty? %>
+          <div class="alert alert-danger">
+            <%= message %>
+        <% end %>
     </form>
     
 </div>
