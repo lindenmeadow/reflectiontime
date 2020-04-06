@@ -8,5 +8,10 @@
         <input type="submit" name="login" value="Login">
         <br>
         <a href="/signup">New to ReflectionTime? Sign up here!</a>
+        <br>
+        <% unless locals.empty? %>
+          <div class="alert alert-danger">
+            <%= message %>
+        <% end %>
     </form>
 </div>
